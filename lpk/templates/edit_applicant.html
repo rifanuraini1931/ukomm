@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Edit Pendaftar</h1>
+<form action="{{ url_for('edit_applicant', id=applicant.id) }}" method="POST">
+    <label for="full_name">Nama Lengkap:</label>
+    <input type="text" id="full_name" name="full_name" value="{{ applicant.full_name }}" required>
+
+    <label for="nik">NIK:</label>
+    <input type="text" id="nik" name="nik" value="{{ applicant.nik }}" required>
+
+    <label for="whatsapp_number">Nomor Whatsapp:</label>
+    <input type="text" id="whatsapp_number" name="whatsapp_number" value="{{ applicant.whatsapp_number }}" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" value="{{ applicant.email }}" required>
+
+    <label for="training_program">Program Pelatihan:</label>
+    <select id="training_program" name="training_program" required>
+        <option value="Pelatihan Web Developer" {% if applicant.training_program == "Pelatihan Web Developer" %}selected{% endif %}>Pelatihan Web Developer</option>
+        <option value="Data Scientist" {% if applicant.training_program == "Data Scientist" %}selected{% endif %}>Data Scientist</option>
+        <option value="Android Developer" {% if applicant.training_program == "Android Developer" %}selected{% endif %}>Android Developer</option>
+        <option value="Video Editor" {% if applicant.training_program == "Video Editor" %}selected{% endif %}>Video Editor</option>
+        <option value="Animator" {% if applicant.training_program == "Animator" %}selected{% endif %}>Animator</option>
+        <option value="Content Creator" {% if applicant.training_program == "Content Creator" %}selected{% endif %}>Content Creator</option>
+        <option value="Enterprise Resource Planning" {% if applicant.training_program == "Enterprise Resource Planning" %}selected{% endif %}>Enterprise Resource Planning</option>
+        <option value="Desainer Grafis" {% if applicant.training_program == "Desainer Grafis" %}selected{% endif %}>Desainer Grafis</option>
+        <option value="Teknisi Jaringan" {% if applicant.training_program == "Teknisi Jaringan" %}selected{% endif %}>Teknisi Jaringan</option>
+    </select>
+
+    <button type="submit">Simpan</button>
+</form>
+{% endblock %}
+

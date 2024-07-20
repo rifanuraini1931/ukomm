@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Nama Lembaga Pelatihan Kerja</h1>
+<div class="program-cards">
+    {% for program in training_programs %}
+    <div class="card">
+        <img src="{{ program.image }}" alt="{{ program.name }}">
+        <h2>{{ program.name }}</h2>
+        <p>{{ program.description }}</p>
+        <a href="{{ url_for('register') }}">Daftar</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
